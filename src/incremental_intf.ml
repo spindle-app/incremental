@@ -1044,7 +1044,7 @@ module type Incremental = sig
       val t : state_witness t
     end
 
-    val create : ?max_height_allowed:int (** default is now 256 for M1 Macs *) -> unit -> (module S)
+    val create : ?max_height_allowed:int (** default is now 256 for M1 Macs; if reverting to 128 on older Macs, tests don't need to be updated *) -> unit -> (module S)
 
     (** If [keep_node_creation_backtrace], then whenever a new node is created,
         incremental will call [Backtrace.get] and store the result in the node.  The
