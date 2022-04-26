@@ -135,7 +135,7 @@ struct
           let max_height_allowed = max_height_allowed
 
           (* the default *)
-          let%test _ = max_height_allowed t = 128
+          let%test _ = max_height_allowed t = 528
 
           let max_height_seen = max_height_seen
 
@@ -151,10 +151,10 @@ struct
 
           let%expect_test _ = set_max_height_allowed t 10
           let%test _ = max_height_allowed t = 10
-          let%expect_test _ = set_max_height_allowed t 128
+          let%expect_test _ = set_max_height_allowed t 256
 
           let%expect_test _ =
-            set_max_height_allowed t 256;
+            set_max_height_allowed t 512;
             let rec loop n =
               if n = 0 then return 0 else loop (n - 1) >>| fun i -> i + 1
             in

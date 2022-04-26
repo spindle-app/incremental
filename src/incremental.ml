@@ -8,7 +8,7 @@ module type Incremental_config = Config.Incremental_config
 
 module Config = Config
 
-let default_max_height_allowed = 128
+let default_max_height_allowed = 256
 
 module Generic = struct
   module Cutoff = Cutoff
@@ -286,7 +286,7 @@ module Make_with_config (Incremental_config : Incremental_config) () = struct
   module State = struct
     include State
 
-    let t = create_internal (module Incremental_config) ~max_height_allowed:128
+    let t = create_internal (module Incremental_config) ~max_height_allowed:256
   end
 
   module Clock = struct

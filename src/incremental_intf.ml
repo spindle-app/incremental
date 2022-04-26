@@ -133,7 +133,7 @@
 
     Stabilization uses a heap implemented with an array whose length is the max height, so
     for good performance, the height of nodes must be small.  There is an upper bound on
-    the height of nodes, [max_height_allowed], which defaults to 128.  An attempt to
+    the height of nodes, [max_height_allowed], which defaults to 256.  An attempt to
     create a node with larger height will raise.  One can dynamically increase
     [max_height_allowed]; however, one should be wary of doing so, for performance
     reasons.
@@ -1044,7 +1044,7 @@ module type Incremental = sig
       val t : state_witness t
     end
 
-    val create : ?max_height_allowed:int (** default is 128 *) -> unit -> (module S)
+    val create : ?max_height_allowed:int (** default is now 256 for M1 Macs *) -> unit -> (module S)
 
     (** If [keep_node_creation_backtrace], then whenever a new node is created,
         incremental will call [Backtrace.get] and store the result in the node.  The
